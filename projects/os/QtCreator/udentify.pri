@@ -16,12 +16,12 @@
 #   File: udentify.pri
 #
 # Author: $author$
-#   Date: 4/3/2022, 6/2/2022
+#   Date: 4/3/2022, 6/20/2022
 #
 # os specific QtCreator project .pri file for framework udentify
 ########################################################################
 # Repository Depends: vmachinae
-# Depends: ubn;ump;urostra;unadir;ufila;ucrono;ucifra;urete;ustara;utalas;udentity
+# Depends: ubn;ump;urostra;unadir;ufila;ucrono;ucifra;urete;ustara;utls;udentity
 
 UNAME = $$system(uname)
 
@@ -284,27 +284,27 @@ ustara_LIBS += \
 
 
 ########################################################################
-# utalas
-UTALAS_THIRDPARTY_PKG_MAKE_BLD = $${UTALAS_THIRDPARTY_PKG}/build/$${UDENTIFY_BUILD}/$${BUILD_CONFIG}
-UTALAS_THIRDPARTY_PRJ_MAKE_BLD = $${OTHER_BLD}/$${UTALAS_THIRDPARTY_PRJ}/build/$${UDENTIFY_BUILD}/$${BUILD_CONFIG}
-UTALAS_THIRDPARTY_PKG_BLD = $${UTALAS_THIRDPARTY_PKG}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
-UTALAS_THIRDPARTY_PRJ_BLD = $${OTHER_BLD}/$${UTALAS_THIRDPARTY_PRJ}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
-UTALAS_PKG_BLD = $${OTHER_BLD}/$${UTALAS_PKG}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
-UTALAS_PRJ_BLD = $${OTHER_BLD}/$${UTALAS_PRJ}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
-#UTALAS_LIB = $${UTALAS_THIRDPARTY_PKG_MAKE_BLD}/lib
-#UTALAS_LIB = $${UTALAS_THIRDPARTY_PRJ_MAKE_BLD}/lib
-#UTALAS_LIB = $${UTALAS_THIRDPARTY_PKG_BLD}/lib
-#UTALAS_LIB = $${UTALAS_THIRDPARTY_PRJ_BLD}/lib
-UTALAS_LIB = $${UTALAS_PKG_BLD}/lib
-#UTALAS_LIB = $${UTALAS_PRJ_BLD}/lib
-#UTALAS_LIB = $${UDENTIFY_LIB}
-UTALAS_LIB_NAME = $${UTALAS_NAME}
+# utls
+UTLS_THIRDPARTY_PKG_MAKE_BLD = $${UTLS_THIRDPARTY_PKG}/build/$${UDENTIFY_BUILD}/$${BUILD_CONFIG}
+UTLS_THIRDPARTY_PRJ_MAKE_BLD = $${OTHER_BLD}/$${UTLS_THIRDPARTY_PRJ}/build/$${UDENTIFY_BUILD}/$${BUILD_CONFIG}
+UTLS_THIRDPARTY_PKG_BLD = $${UTLS_THIRDPARTY_PKG}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
+UTLS_THIRDPARTY_PRJ_BLD = $${OTHER_BLD}/$${UTLS_THIRDPARTY_PRJ}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
+UTLS_PKG_BLD = $${OTHER_BLD}/$${UTLS_PKG}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
+UTLS_PRJ_BLD = $${OTHER_BLD}/$${UTLS_PRJ}/build/$${UDENTIFY_BUILD}/QtCreator/$${BUILD_CONFIG}
+#UTLS_LIB = $${UTLS_THIRDPARTY_PKG_MAKE_BLD}/lib
+#UTLS_LIB = $${UTLS_THIRDPARTY_PRJ_MAKE_BLD}/lib
+#UTLS_LIB = $${UTLS_THIRDPARTY_PKG_BLD}/lib
+#UTLS_LIB = $${UTLS_THIRDPARTY_PRJ_BLD}/lib
+UTLS_LIB = $${UTLS_PKG_BLD}/lib
+#UTLS_LIB = $${UTLS_PRJ_BLD}/lib
+#UTLS_LIB = $${UDENTIFY_LIB}
+UTLS_LIB_NAME = $${UTLS_NAME}
 
-# utalas LIBS
+# utls LIBS
 #
-utalas_LIBS += \
--L$${UTALAS_LIB}/lib$${UTALAS_LIB_NAME} \
--l$${UTALAS_LIB_NAME} \
+utls_LIBS += \
+-L$${UTLS_LIB}/lib$${UTLS_LIB_NAME} \
+-l$${UTLS_LIB_NAME} \
 
 
 ########################################################################
@@ -358,7 +358,7 @@ udentify_os_LIBS += \
 
 udentify_base_LIBS += \
 $${udentity_LIBS} \
-$${utalas_LIBS} \
+$${utls_LIBS} \
 $${ustara_LIBS} \
 $${urete_LIBS} \
 $${ucifra_LIBS} \
