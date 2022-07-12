@@ -16,7 +16,7 @@
 ///   File: main_opt.hpp
 ///
 /// Author: $author$
-///   Date: 5/12/2022
+///   Date: 5/19/2022, 6/22/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OPT_HPP
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OPT_HPP
@@ -37,11 +37,37 @@
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG_RESULT, \
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_C}, \
 
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPT "client-key-exchange-only"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTARG ""
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTUSE "client key exchange only"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTVAL_S "y"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTVAL_C 'y'
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTION \
+   {XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPT, \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPT "output-message-only"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_NONE
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTARG ""
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTUSE "output message sent/recved only"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTVAL_S "o"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTVAL_C 'o'
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTION \
+   {XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPT, \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTVAL_C}, \
+
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPT "client-hello-message"
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTARG_RESULT 0
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTARG "[string]"
-#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTUSE "client hello message"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTUSE "client hello message sent"
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_S "c::"
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_C 'c'
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTION \
@@ -54,7 +80,7 @@
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTARG_RESULT 0
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTARG "[string]"
-#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTUSE "server hello message"
+#define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTUSE "server hello message recved"
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTVAL_S "s::"
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTVAL_C 's'
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTION \
@@ -65,11 +91,15 @@
 
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_S \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTVAL_S \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTVAL_S \
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_S \
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTVAL_S \
 
 #define XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OPTIONS_OPTIONS_EXTEND \
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_OPTION \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTION \
+    XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTION \
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTION \
     XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTION \
 
@@ -93,7 +123,7 @@ namespace client {
 
 /// class main_optt
 template 
-<class TOutput = xos::protocol::udtp::client::output, 
+<class TOutput = xos::protocol::udtp::client::output,
  class TExtends = xos::app::console::protocol::udtp::base::maint<TOutput>, 
  class TImplements = typename TExtends::implements>
 
@@ -169,63 +199,63 @@ protected:
         return err;
     }
 
-    /// ...client_hello_run
-    virtual int client_hello_run(int argc, char_t** argv, char_t** env) {
+    /// ...output_client_hello_message_run
+    virtual int output_client_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         return err;
     }
-    virtual int before_client_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int before_output_client_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         return err;
     }
-    virtual int after_client_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int after_output_client_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         return err;
     }
-    virtual int all_client_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int all_output_client_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
-        if (!(err = before_client_hello_run(argc, argv, env))) {
+        if (!(err = before_output_client_hello_message_run(argc, argv, env))) {
             int err2 = 0;
-            err = client_hello_run(argc, argv, env);
-            if ((err2 = after_client_hello_run(argc, argv, env))) {
+            err = output_client_hello_message_run(argc, argv, env);
+            if ((err2 = after_output_client_hello_message_run(argc, argv, env))) {
                 if (!(err)) err = err2;
             }
         }
         return err;
     }
-    virtual int set_client_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int set_output_client_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
-        run_ = &derives::all_client_hello_run;
+        run_ = &derives::all_output_client_hello_message_run;
         return err;
     }
 
-    /// ...server_hello_run
-    virtual int server_hello_run(int argc, char_t** argv, char_t** env) {
+    /// ...output_server_hello_message_run
+    virtual int output_server_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         return err;
     }
-    virtual int before_server_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int before_output_server_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         return err;
     }
-    virtual int after_server_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int after_output_server_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         return err;
     }
-    virtual int all_server_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int all_output_server_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
-        if (!(err = before_server_hello_run(argc, argv, env))) {
+        if (!(err = before_output_server_hello_message_run(argc, argv, env))) {
             int err2 = 0;
-            err = server_hello_run(argc, argv, env);
-            if ((err2 = after_server_hello_run(argc, argv, env))) {
+            err = output_server_hello_message_run(argc, argv, env);
+            if ((err2 = after_output_server_hello_message_run(argc, argv, env))) {
                 if (!(err)) err = err2;
             }
         }
         return err;
     }
-    virtual int set_server_hello_run(int argc, char_t** argv, char_t** env) {
+    virtual int set_output_server_hello_message_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
-        run_ = &derives::all_server_hello_run;
+        run_ = &derives::all_output_server_hello_message_run;
         return err;
     }
 
@@ -257,6 +287,28 @@ protected:
         optarg = XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG;
         return chars;
     }
+    virtual int on_client_key_exchange_only_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual const char_t* client_key_exchange_only_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTUSE;
+        optarg = XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTARG;
+        return chars;
+    }
+    virtual int on_output_message_only_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        return err;
+    }
+    virtual const char_t* output_message_only_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTUSE;
+        optarg = XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTARG;
+        return chars;
+    }
     virtual int on_set_client_hello_message_option
     (const char_t* optarg, int argc, char_t**argv, char_t**env) {
         int err = 0;
@@ -270,11 +322,11 @@ protected:
         int err = 0;
         if ((optarg) && (optarg[0])) {
             if (!(err = on_set_client_hello_message_option(optarg, argc, argv, env))) {
-                if (!(err = set_client_hello_run(argc, argv, env))) {
+                if (!(err = set_output_client_hello_message_run(argc, argv, env))) {
                 }
             }
         } else {
-            if (!(err = set_client_hello_run(argc, argv, env))) {
+            if (!(err = set_output_client_hello_message_run(argc, argv, env))) {
             }
         }
         return err;
@@ -297,11 +349,11 @@ protected:
         int err = 0;
         if ((optarg) && (optarg[0])) {
             if (!(err = on_set_server_hello_message_option(optarg, argc, argv, env))) {
-                if (!(err = set_server_hello_run(argc, argv, env))) {
+                if (!(err = set_output_server_hello_message_run(argc, argv, env))) {
                 }
             }
         } else {
-            if (!(err = set_server_hello_run(argc, argv, env))) {
+            if (!(err = set_output_server_hello_message_run(argc, argv, env))) {
             }
         }
         return err;
@@ -321,6 +373,12 @@ protected:
 
         case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_C:
             err = this->on_client_hello_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTVAL_C:
+            err = this->on_client_key_exchange_only_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTVAL_C:
+            err = this->on_output_message_only_option(optval, optarg, optname, optind, argc, argv, env);
             break;
 
         case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_C:
@@ -342,6 +400,12 @@ protected:
         case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_C:
             chars = this->client_hello_option_usage(optarg, longopt);
             break;
+        case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_KEY_EXCHANGE_ONLY_OPTVAL_C:
+            chars = this->client_key_exchange_only_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_OUTPUT_MESSAGE_ONLY_OPTVAL_C:
+            chars = this->output_message_only_option_usage(optarg, longopt);
+            break;
 
         case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_C:
             chars = this->client_hello_message_option_usage(optarg, longopt);
@@ -349,7 +413,6 @@ protected:
         case XOS_APP_CONSOLE_PROTOCOL_UDTP_CLIENT_MAIN_SERVER_HELLO_MESSAGE_OPTVAL_C:
             chars = this->server_hello_message_option_usage(optarg, longopt);
             break;
-
         default:
             chars = extends::option_usage(optarg, longopt);
             break;

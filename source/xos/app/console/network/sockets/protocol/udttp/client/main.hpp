@@ -16,7 +16,7 @@
 ///   File: main.hpp
 ///
 /// Author: $author$
-///   Date: 3/5/2022
+///   Date: 7/1/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_HPP
 #define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_HPP
@@ -90,10 +90,13 @@ protected:
 
     /// ...output_generate_client_hello_run
     virtual int output_generate_client_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
         output_t &output = this->output();
+        const bool verbose_output = output.verbose_output();
         string_output_t string_output(content_string_);
         output_to_t* old_output = output.set_output_to(&string_output);
-        int err = 0;
+
+        output.set_verbose_output(false);
         if (!(err = output.output_generate_client_hello())) {
             const char_t* chars = 0; size_t length = 0;
             
@@ -101,12 +104,40 @@ protected:
                 this->all_set_content(chars, argc, argv, env);
             }
         }
+        output.set_verbose_output(verbose_output);
         output.set_output_to(old_output);
         return err;
     }
     virtual int set_output_generate_client_hello_run(int argc, char_t** argv, char_t** env) {
         int err = 0;
         if (!(err = output_generate_client_hello_run(argc, argv, env))) {
+        }
+        return err;
+    }
+
+    /// ...output_client_hello_run
+    virtual int output_client_hello_run(int argc, char_t** argv, char_t** env) {
+        output_t &output = this->output();
+        string_output_t string_output(content_string_);
+        output_to_t* old_output = output.set_output_to(&string_output);
+        const bool output_hello_message = output.output_hello_message();
+        int err = 0;
+
+        output.set_output_hello_message(true);
+        if (!(err = output.output_client_hello_messages())) {
+            const char_t* chars = 0; size_t length = 0;
+            
+            if ((chars = content_string_.has_chars(length))) {
+                this->all_set_content(chars, argc, argv, env);
+            }
+        }
+        output.set_output_hello_message(output_hello_message);
+        output.set_output_to(old_output);
+        return err;
+    }
+    virtual int set_output_client_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        if (!(err = output_client_hello_run(argc, argv, env))) {
         }
         return err;
     }
@@ -119,23 +150,37 @@ protected:
         return err;
     }
 
-    /// ...outout_response_content
+    /// ...outout_response...
+    virtual int outout_response(response_t &rs, int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        const bool verbose_output = this->verbose_output();
+        if ((verbose_output)) {
+            err = extends::outout_response(rs, argc, argv, env);
+        } else {
+            err = outout_response_content(rs, argc, argv, env);
+        }
+        return err;
+    }
     virtual int outout_response_content(response_t &rs, int argc, char_t** argv, char_t** env) {
         int err = 0;
         const char_t* chars = 0; size_t length = 0;
 
         if ((chars = rs.content_chars(length))) {
-            bool& verbose_output = this->verbose_output(); 
             output_t& output = this->output(); 
+            const bool output_verbose_output = output.verbose_output(),
+                       verbose_output = this->verbose_output(); 
 
-            this->outln(chars, length);
+            if ((verbose_output)) {
+                this->outln(chars, length);
+            }
             output.set_verbose_output(verbose_output);
             output.unset_on_set_file_literals();
-            if (!(err = output.on_set_server_hello_message_option(chars))) {
+            if (!(err = output.on_set_server_hello_messages_option(chars))) {
                 output_to_t* old_output = output.unset_output_to();
-                output.output_server_hello();
+                output.output_server_hello_messages();
                 output.set_output_to(old_output);
             }
+            output.set_verbose_output(output_verbose_output);
         }
         return err;
     }
@@ -150,12 +195,13 @@ protected:
         }
         return err;
     }
-    virtual int on_file_input_option
-    (int optval, const char_t* optarg, const char_t* optname,
-     int optind, int argc, char_t**argv, char_t**env) {
+    virtual int on_set_client_hello_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
         int err = 0;
-        output_t& output = this->output(); 
-        output.set_on_set_file_literals();
+        if ((optarg) && (optarg[0])) {
+            output_t& output = this->output(); 
+            output.on_set_client_hello_messages_option(optarg);
+        }
         return err;
     }
 

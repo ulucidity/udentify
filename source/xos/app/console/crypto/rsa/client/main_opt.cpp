@@ -13,43 +13,32 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: main.cpp
+///   File: main_opt.cpp
 ///
 /// Author: $author$
-///   Date: 7/1/2022
+///   Date: 5/12/2022
 ///////////////////////////////////////////////////////////////////////
-#include "xos/app/console/network/sockets/protocol/udttp/client/main.hpp"
+#include "xos/app/console/crypto/rsa/client/main_opt.hpp"
 
-#if defined(XOS_CONSOLE_MAIN_MAIN)
-#include "xos/console/main_main.cpp"
-#if !defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_INSTANCE)
-#define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_INSTANCE
-#endif /// !defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_NSTANCE)
-#endif /// defined(XOS_CONSOLE_MAIN_MAIN)
-
-#if !defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_INSTANCE)
-///#define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_INSTANCE
-#endif /// !defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_NSTANCE)
+#if !defined(XOS_APP_CONSOLE_CRYPTO_RSA_CLIENT_MAIN_OPT_INSTANCE)
+///#define XOS_APP_CONSOLE_CRYPTO_RSA_CLIENT_MAIN_OPT_INSTANCE
+#endif /// !defined(XOS_APP_CONSOLE_CRYPTO_RSA_CLIENT_MAIN_OPT_NSTANCE)
 
 namespace xos {
 namespace app {
 namespace console {
-namespace network {
-namespace sockets {
-namespace protocol {
-namespace udttp {
+namespace crypto {
+namespace rsa {
 namespace client {
 
-/// class main
-#if defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_INSTANCE)
-static main the_main;
-#endif /// defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_INSTANCE)
+/// class main_opt
+#if defined(XOS_APP_CONSOLE_CRYPTO_RSA_CLIENT_MAIN_OPT_INSTANCE)
+static main_opt the_main_opt;
+#endif /// defined(XOS_APP_CONSOLE_CRYPTO_RSA_CLIENT_MAIN_OPT_INSTANCE)
 
 } /// namespace client
-} /// namespace udttp
-} /// namespace protocol
-} /// namespace sockets
-} /// namespace network
+} /// namespace rsa
+} /// namespace crypto
 } /// namespace console
 } /// namespace app
 } /// namespace xos

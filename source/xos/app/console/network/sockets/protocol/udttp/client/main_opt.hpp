@@ -16,7 +16,7 @@
 ///   File: main_opt.hpp
 ///
 /// Author: $author$
-///   Date: 3/5/2022
+///   Date: 7/1/2022
 ///////////////////////////////////////////////////////////////////////
 #ifndef XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPT_HPP
 #define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPT_HPP
@@ -38,11 +38,41 @@
     XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_CLIENT_HELLO_MESSAGE_OPTARG_RESULT, \
     XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_C}, \
 
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPT "client-hello"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG "[string]"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTUSE "client hello send"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_S "C::"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_C 'C'
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTION \
+   {XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPT, \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_C}, \
+
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPT "server-hello"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTARG_REQUIRED MAIN_OPT_ARGUMENT_OPTIONAL
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTARG_RESULT 0
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTARG "[string]"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTUSE "server hello recv"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTVAL_S "S::"
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTVAL_C 'S'
+#define XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTION \
+   {XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPT, \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTARG_REQUIRED, \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTARG_RESULT, \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTVAL_C}, \
+
 #define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
     XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_S \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_S \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTVAL_S \
 
 #define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPTIONS_OPTIONS_EXTEND \
     XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_CLIENT_HELLO_MESSAGE_OPTION \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTION \
+    XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTION \
 
 #define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPTIONS_CHARS \
    XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPTIONS_CHARS_EXTEND \
@@ -180,6 +210,36 @@ protected:
         return err;
     }
 
+    /// ...output_client_hello_run
+    virtual int output_client_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int before_output_client_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int after_output_client_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        return err;
+    }
+    virtual int all_output_client_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        if (!(err = before_output_client_hello_run(argc, argv, env))) {
+            int err2 = 0;
+            err = output_client_hello_run(argc, argv, env);
+            if ((err2 = after_output_client_hello_run(argc, argv, env))) {
+                if (!(err)) err = err2;
+            }
+        }
+        return err;
+    }
+    virtual int set_output_client_hello_run(int argc, char_t** argv, char_t** env) {
+        int err = 0;
+        run_ = &derives::all_output_client_hello_run;
+        return err;
+    }
+
     /// ...option...
     virtual int on_set_client_hello_message_option
     (const char_t* optarg, int argc, char_t**argv, char_t**env) {
@@ -208,14 +268,69 @@ protected:
         optarg = XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_CLIENT_HELLO_MESSAGE_OPTARG;
         return chars;
     }
+
+    /// ...option...
+    virtual int on_set_client_hello_option
+    (const char_t* optarg, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+        }
+        return err;
+    }
+    virtual int on_client_hello_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+            if (!(err = on_set_client_hello_option(optarg, argc, argv, env))) {
+                if (!(err = set_output_client_hello_run(argc, argv, env))) {
+                }
+            }
+        } else {
+            if (!(err = set_output_client_hello_run(argc, argv, env))) {
+            }
+        }
+        return err;
+    }
+    virtual const char_t* client_hello_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTUSE;
+        optarg = XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTARG;
+        return chars;
+    }
+
+    /// ...option...
+    virtual int on_server_hello_option
+    (int optval, const char_t* optarg, const char_t* optname,
+     int optind, int argc, char_t**argv, char_t**env) {
+        int err = 0;
+        if ((optarg) && (optarg[0])) {
+        } else {
+        }
+        return err;
+    }
+    virtual const char_t* server_hello_option_usage(const char_t*& optarg, const struct option* longopt) {
+        const char_t* chars = XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTUSE;
+        optarg = XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTARG;
+        return chars;
+    }
+
+    /// ...option...
     virtual int on_option
     (int optval, const char_t* optarg, const char_t* optname,
      int optind, int argc, char_t**argv, char_t**env) {
         int err = 0;
         switch(optval) {
+
         case XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_C:
             err = this->on_client_hello_message_option(optval, optarg, optname, optind, argc, argv, env);
             break;
+        case XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_C:
+            err = this->on_client_hello_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+        case XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTVAL_C:
+            err = this->on_server_hello_option(optval, optarg, optname, optind, argc, argv, env);
+            break;
+
         default:
             err = extends::on_option(optval, optarg, optname, optind, argc, argv, env);
         }
@@ -224,9 +339,17 @@ protected:
     virtual const char_t* option_usage(const char_t*& optarg, const struct option* longopt) {
         const char_t* chars = "";
         switch(longopt->val) {
+
         case XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_BASE_MAIN_CLIENT_HELLO_MESSAGE_OPTVAL_C:
             chars = this->client_hello_message_option_usage(optarg, longopt);
             break;
+        case XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_CLIENT_HELLO_OPTVAL_C:
+            chars = this->client_hello_option_usage(optarg, longopt);
+            break;
+        case XOS_APP_CONSOLE_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_SERVER_HELLO_OPTVAL_C:
+            chars = this->server_hello_option_usage(optarg, longopt);
+            break;
+
         default:
             chars = extends::option_usage(optarg, longopt);
             break;

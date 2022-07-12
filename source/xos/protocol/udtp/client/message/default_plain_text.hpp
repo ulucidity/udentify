@@ -13,36 +13,37 @@
 /// or otherwise) arising in any way out of the use of this software, 
 /// even if advised of the possibility of such damage.
 ///
-///   File: main_opt.cpp
+///   File: default_plain_text.hpp
 ///
 /// Author: $author$
-///   Date: 7/1/2022
+///   Date: 5/19/2022
 ///////////////////////////////////////////////////////////////////////
-#include "xos/app/console/network/sockets/protocol/udttp/client/main_opt.hpp"
+#ifndef XOS_PROTOCOL_UDTP_CLIENT_MESSAGE_DEFAULT_PLAIN_TEXT_HPP
+#define XOS_PROTOCOL_UDTP_CLIENT_MESSAGE_DEFAULT_PLAIN_TEXT_HPP
 
-#if !defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPT_INSTANCE)
-///#define XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPT_INSTANCE
-#endif /// !defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPT_NSTANCE)
+#include "xos/base/base.hpp"
 
 namespace xos {
-namespace app {
-namespace console {
-namespace network {
-namespace sockets {
 namespace protocol {
-namespace udttp {
+namespace udtp {
 namespace client {
+namespace message {
 
-/// class main_opt
-#if defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPT_INSTANCE)
-static main_opt the_main_opt;
-#endif /// defined(XOS_APP_CONSOLE_NETWORK_SOCKETS_PROTOCOL_UDTTP_CLIENT_MAIN_OPT_INSTANCE)
+static const char default_plain_text[] 
+= "{\n" \
+  "    \"password\": {\n" \
+  "        \"user\": \"user\",\n" \
+  "        \"resource\": \"resource\",\n" \
+  "        \"password\": \"password\"\n" \
+  "        \"passtoken\": \"passtoken\"\n" \
+  "        \"passkey\": \"passkey\"\n" \
+  "    }\n" \
+  "}\n";
 
+} /// namespace message
 } /// namespace client
-} /// namespace udttp
+} /// namespace udtp
 } /// namespace protocol
-} /// namespace sockets
-} /// namespace network
-} /// namespace console
-} /// namespace app
 } /// namespace xos
+
+#endif /// ndef XOS_PROTOCOL_UDTP_CLIENT_MESSAGE_DEFAULT_PLAIN_TEXT_HPP
