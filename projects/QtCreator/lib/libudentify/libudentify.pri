@@ -16,14 +16,14 @@
 #   File: libudentify.pri
 #
 # Author: $author$
-#   Date: 4/3/2022, 5/11/2022
+#   Date: 4/3/2022, 7/11/2022
 #
 # generic QtCreator project .pri file for framework udentify static library libudentify
 ########################################################################
 
 ########################################################################
 # libudentify
-XOS_LIB_UDENTIFY_VERSION_BUILD_DATE = 5/11/2022 #$$system(~/bin/utility/tdate)
+XOS_LIB_UDENTIFY_VERSION_BUILD_DATE = 7/11/2022 #$$system(~/bin/utility/tdate)
 
 # libudentify TARGET
 #

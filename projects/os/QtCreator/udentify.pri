@@ -16,7 +16,7 @@
 #   File: udentify.pri
 #
 # Author: $author$
-#   Date: 4/3/2022, 6/20/2022
+#   Date: 4/3/2022, 7/11/2022
 #
 # os specific QtCreator project .pri file for framework udentify
 ########################################################################

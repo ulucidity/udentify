@@ -16,7 +16,7 @@
 #   File: udtp.pri
 #
 # Author: $author$
-#   Date: 6/21/2022
+#   Date: 6/21/2022, 7/11/2022
 #
 # generic QtCreator project .pri file for framework udentify executable udtp
 ########################################################################
@@ -55,24 +55,12 @@ XOS_CONSOLE_MAIN_MAIN \
 # udtp HEADERS
 #
 udtp_HEADERS += \
-$${UDENTITY_SRC}/xos/protocol/udtp/base/output.hpp \
-$${UDENTITY_SRC}/xos/protocol/udtp/server/output.hpp \
-\
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/base/main.hpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main_opt.hpp \
-$${UDENTITY_SRC}/xos/app/console/protocol/udtp/server/main.hpp \
-\
-$${UDENTIFY_SRC}/xos/protocol/udtp/client/output.hpp \
-\
 $${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main_opt.hpp \
 $${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main.hpp \
 
 # udtp SOURCES
 #
 udtp_SOURCES += \
-$${UDENTIFY_SRC}/xos/protocol/udtp/client/output.cpp \
-\
 $${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main_opt.cpp \
 $${UDENTIFY_SRC}/xos/app/console/protocol/udtp/client/main.cpp \
 

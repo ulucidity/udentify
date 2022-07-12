@@ -13,69 +13,70 @@
 # or otherwise) arising in any way out of the use of this software,
 # even if advised of the possibility of such damage.
 #
-#   File: udttp.pri
+#   File: ursa.pro
 #
 # Author: $author$
-#   Date: 6/2/2022, 7/11/2022
+#   Date: 5/12/2022
 #
-# generic QtCreator project .pri file for framework udentify executable udttp
+# os specific QtCreator project .pro file for framework udentify executable ursa
 ########################################################################
-
-########################################################################
-# udttp
-
-# udttp TARGET
 #
-udttp_TARGET = udttp
-
-# udttp INCLUDEPATH
+# Debug: udentify/build/os/QtCreator/Debug/bin/ursa
+# Release: udentify/build/os/QtCreator/Release/bin/ursa
+# Profile: udentify/build/os/QtCreator/Profile/bin/ursa
 #
-udttp_INCLUDEPATH += \
-$${udentify_INCLUDEPATH} \
+include(../../../../../build/QtCreator/udentify.pri)
+include(../../../../QtCreator/udentify.pri)
+include(../../udentify.pri)
+include(../../../../QtCreator/app/ursa/ursa.pri)
 
-# udttp DEFINES
-#
-udttp_DEFINES += \
-$${udentify_DEFINES} \
-DEFAULT_LOGGING_LEVELS_ERROR \
-XOS_CONSOLE_MAIN_MAIN \
+TARGET = $${ursa_TARGET}
 
 ########################################################################
-# udttp OBJECTIVE_HEADERS
+# INCLUDEPATH
 #
-#udttp_OBJECTIVE_HEADERS += \
-#$${UDENTIFY_SRC}/xos/app/console/network/sockets/protocol/udttp/client/main.hh \
+INCLUDEPATH += \
+$${ursa_INCLUDEPATH} \
 
-# udttp OBJECTIVE_SOURCES
-#
-#udttp_OBJECTIVE_SOURCES += \
-#$${UDENTIFY_SRC}/xos/app/console/network/sockets/protocol/udttp/client/main.mm \
-
-########################################################################
-# udttp HEADERS
-#
-udttp_HEADERS += \
-$${UDENTIFY_SRC}/xos/app/console/network/sockets/protocol/udttp/client/main_opt.hpp \
-$${UDENTIFY_SRC}/xos/app/console/network/sockets/protocol/udttp/client/main.hpp \
-
-# udttp SOURCES
-#
-udttp_SOURCES += \
-$${UDENTIFY_SRC}/xos/app/console/network/sockets/protocol/udttp/client/main_opt.cpp \
-$${UDENTIFY_SRC}/xos/app/console/network/sockets/protocol/udttp/client/main.cpp \
+# DEFINES
+# 
+DEFINES += \
+$${ursa_DEFINES} \
 
 ########################################################################
-# udttp FRAMEWORKS
+# OBJECTIVE_HEADERS
 #
-udttp_FRAMEWORKS += \
-$${udentify_rsa_FRAMEWORKS} \
+OBJECTIVE_HEADERS += \
+$${ursa_OBJECTIVE_HEADERS} \
 
-# udttp LIBS
+# OBJECTIVE_SOURCES
 #
-udttp_LIBS += \
-$${udentify_rsa_LIBS} \
+OBJECTIVE_SOURCES += \
+$${ursa_OBJECTIVE_SOURCES} \
 
 ########################################################################
-# NO Qt
-QT -= gui core
+# HEADERS
+#
+HEADERS += \
+$${ursa_HEADERS} \
+$${ursa_OBJECTIVE_HEADERS} \
+
+# SOURCES
+#
+SOURCES += \
+$${ursa_SOURCES} \
+
+########################################################################
+# FRAMEWORKS
+#
+FRAMEWORKS += \
+$${ursa_FRAMEWORKS} \
+
+# LIBS
+#
+LIBS += \
+$${ursa_LIBS} \
+$${FRAMEWORKS} \
+
+########################################################################
 

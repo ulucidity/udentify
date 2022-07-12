@@ -16,7 +16,7 @@
 #   File: udtp.pro
 #
 # Author: $author$
-#   Date: 6/21/2022
+#   Date: 6/21/2022, 7/11/2022
 #
 # os specific QtCreator project .pro file for framework udentify executable udtp
 ########################################################################
